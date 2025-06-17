@@ -124,9 +124,9 @@ export default function AssetCreator() {
         </div>
         
         <div className="mb-6">
-          <Label className="text-sm font-semibold text-gray-700 mb-2">Asset Name</Label>
+          <Label className="text-sm font-semibold text-gray-700 mb-2">Program Name</Label>
           <Input 
-            placeholder="Enter asset name"
+            placeholder="Enter program name"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
@@ -134,10 +134,10 @@ export default function AssetCreator() {
         </div>
         
         <div className="mb-6">
-          <Label className="text-sm font-semibold text-gray-700 mb-2">Asset Description</Label>
+          <Label className="text-sm font-semibold text-gray-700 mb-2">Program Description</Label>
           <Textarea 
             rows={3} 
-            placeholder="Describe your asset..."
+            placeholder="Describe your program functionality..."
             value={formData.description}
             onChange={(e) => setFormData({...formData, description: e.target.value})}
           />
@@ -145,31 +145,33 @@ export default function AssetCreator() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div>
-            <Label className="text-sm font-semibold text-gray-700 mb-2">Token Symbol</Label>
+            <Label className="text-sm font-semibold text-gray-700 mb-2">Program ID</Label>
             <Input 
-              placeholder="RWA"
+              placeholder="Auto-generated"
               value={formData.tokenSymbol}
               onChange={(e) => setFormData({...formData, tokenSymbol: e.target.value.toUpperCase()})}
-              required
+              disabled
             />
           </div>
           <div>
-            <Label className="text-sm font-semibold text-gray-700 mb-2">Total Supply</Label>
+            <Label className="text-sm font-semibold text-gray-700 mb-2">Initial Value</Label>
             <Input 
               type="number"
-              placeholder="1000000"
+              placeholder="0"
               value={formData.totalSupply}
               onChange={(e) => setFormData({...formData, totalSupply: e.target.value})}
-              required
             />
           </div>
           <div>
-            <Label className="text-sm font-semibold text-gray-700 mb-2">Decimals</Label>
-            <Input 
-              type="number"
-              value={formData.decimals}
-              onChange={(e) => setFormData({...formData, decimals: parseInt(e.target.value) || 18})}
-            />
+            <Label className="text-sm font-semibold text-gray-700 mb-2">Network</Label>
+            <Select value="vara" disabled>
+              <SelectTrigger>
+                <SelectValue placeholder="Vara Network" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="vara">Vara Network</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         
