@@ -76,7 +76,7 @@ export default function BridgeWizard() {
   return (
     <Card className="rounded-2xl p-8 shadow-xl border border-gray-100">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">Deploy New Bridge</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Vara ↔️ Ethereum Bridge</h2>
         <div className="flex items-center space-x-2">
           {[1, 2, 3].map((stepNumber) => (
             <div key={stepNumber} className="flex items-center">

@@ -16,11 +16,16 @@ export default function Dashboard() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            <span className="vara-gradient-text">RWA Bridge Maker</span>
+            <span className="vara-gradient-text">Vara ↔️ Ethereum Bridge</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Tokenize real-world assets and deploy cross-chain bridges with ease. Build the future of decentralized finance on Vara Network.
+            Experience the Vara ↔️ Ethereum Bridge - now LIVE on testnet! Deploy programs, tokenize real-world assets, and build on the revolutionary Gear platform directly in your browser.
           </p>
+          <div className="mt-6 flex justify-center">
+            <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
+              🚀 Testnet is now LIVE
+            </div>
+          </div>
         </div>
 
         <StatsBar />

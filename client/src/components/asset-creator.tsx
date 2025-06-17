@@ -78,44 +78,44 @@ export default function AssetCreator() {
 
   return (
     <Card className="rounded-2xl p-8 shadow-xl border border-gray-100">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Create RWA Asset</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Deploy Program on Vara Network</h2>
       
       <form onSubmit={handleSubmit}>
-        {/* Asset Upload Zone */}
+        {/* Program Upload Zone */}
         <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-primary transition-colors cursor-pointer">
           <div className="space-y-4">
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
               <CloudUpload className="text-gray-400" size={24} />
             </div>
             <div>
-              <p className="text-lg font-medium text-gray-900">Drop asset documents here</p>
-              <p className="text-gray-600">or click to browse files</p>
-              <p className="text-sm text-gray-500 mt-2">Supports PDF, DOC, JPG, PNG up to 10MB</p>
+              <p className="text-lg font-medium text-gray-900">Upload program binary (.wasm)</p>
+              <p className="text-gray-600">or drag and drop your compiled program</p>
+              <p className="text-sm text-gray-500 mt-2">Supports .wasm files up to 10MB</p>
             </div>
           </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
-            <Label className="text-sm font-semibold text-gray-700 mb-2">Asset Type</Label>
+            <Label className="text-sm font-semibold text-gray-700 mb-2">Program Type</Label>
             <Select value={formData.type} onValueChange={(value) => setFormData({...formData, type: value})}>
               <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="real_estate">Real Estate</SelectItem>
-                <SelectItem value="commodities">Commodities</SelectItem>
-                <SelectItem value="art">Art & Collectibles</SelectItem>
-                <SelectItem value="bonds">Bonds</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
+                <SelectItem value="real_estate">RWA - Real Estate</SelectItem>
+                <SelectItem value="commodities">RWA - Commodities</SelectItem>
+                <SelectItem value="art">RWA - Art & Collectibles</SelectItem>
+                <SelectItem value="bonds">RWA - Bonds</SelectItem>
+                <SelectItem value="other">Smart Contract</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div>
-            <Label className="text-sm font-semibold text-gray-700 mb-2">Asset Value (USD)</Label>
+            <Label className="text-sm font-semibold text-gray-700 mb-2">Gas Limit</Label>
             <Input 
               type="number" 
-              placeholder="0.00"
+              placeholder="1000000"
               value={formData.value}
               onChange={(e) => setFormData({...formData, value: e.target.value})}
               required
