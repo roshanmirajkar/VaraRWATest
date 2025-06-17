@@ -105,7 +105,14 @@ export class MemStorage implements IStorage {
 
     sampleAssets.forEach(asset => {
       const id = this.currentAssetId++;
-      this.assets.set(id, { ...asset, id, createdAt: new Date() });
+      this.assets.set(id, { 
+        ...asset, 
+        id, 
+        createdAt: new Date(),
+        description: asset.description || null,
+        decimals: asset.decimals || 18,
+        status: asset.status || "active"
+      });
     });
 
     // Sample bridges
@@ -138,7 +145,13 @@ export class MemStorage implements IStorage {
 
     sampleBridges.forEach(bridge => {
       const id = this.currentBridgeId++;
-      this.bridges.set(id, { ...bridge, id, deploymentFee: "50.00", createdAt: new Date() });
+      this.bridges.set(id, { 
+        ...bridge, 
+        id, 
+        deploymentFee: "50.00", 
+        createdAt: new Date(),
+        status: bridge.status || "configured"
+      });
     });
 
     // Sample activities
