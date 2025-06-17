@@ -178,7 +178,12 @@ export class MemStorage implements IStorage {
 
     sampleActivities.forEach(activity => {
       const id = this.currentActivityId++;
-      this.activities.set(id, { ...activity, id, createdAt: new Date() });
+      this.activities.set(id, { 
+        ...activity, 
+        id, 
+        createdAt: new Date(),
+        amount: activity.amount || null
+      });
     });
 
     // Sample market data
@@ -237,7 +242,14 @@ export class MemStorage implements IStorage {
 
   async createAsset(insertAsset: InsertAsset): Promise<Asset> {
     const id = this.currentAssetId++;
-    const asset: Asset = { ...insertAsset, id, createdAt: new Date() };
+    const asset: Asset = { 
+      ...insertAsset, 
+      id, 
+      createdAt: new Date(),
+      description: insertAsset.description || null,
+      decimals: insertAsset.decimals || 18,
+      status: insertAsset.status || "active"
+    };
     this.assets.set(id, asset);
     
     // Create activity
@@ -279,7 +291,8 @@ export class MemStorage implements IStorage {
       ...insertBridge, 
       id, 
       deploymentFee: "50.00",
-      createdAt: new Date() 
+      createdAt: new Date(),
+      status: insertBridge.status || "configured"
     };
     this.bridges.set(id, bridge);
     
@@ -318,7 +331,12 @@ export class MemStorage implements IStorage {
 
   async createActivity(insertActivity: InsertActivity): Promise<Activity> {
     const id = this.currentActivityId++;
-    const activity: Activity = { ...insertActivity, id, createdAt: new Date() };
+    const activity: Activity = { 
+      ...insertActivity, 
+      id, 
+      createdAt: new Date(),
+      amount: insertActivity.amount || null
+    };
     this.activities.set(id, activity);
     return activity;
   }
